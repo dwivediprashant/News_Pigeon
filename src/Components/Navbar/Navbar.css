@@ -1,0 +1,16 @@
+.logo-img {
+  width: 80px;
+  height: 80px;
+  padding: 0;
+}
+.navbar {
+  background-color: #0d0d0d;
+  color: #fff;
+}
+.fa-bars {
+  color: white;
+}
+.nav-link {
+  color: #fff;
+  margin: 0 2px 0 2px;
+}

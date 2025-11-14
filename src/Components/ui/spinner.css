@@ -1,0 +1,12 @@
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+}
+.loader-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}

@@ -1,0 +1,14 @@
+.card {
+  width: 18rem;
+  margin: 1rem;
+}
+.newscard {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+.badge {
+  z-index: 2;
+}
