@@ -6,6 +6,8 @@
 .navbar {
   background-color: #0d0d0d;
   color: #fff;
+  position: sticky !important;
+  top: 0px;
 }
 .fa-bars {
   color: white;

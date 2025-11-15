@@ -9,7 +9,7 @@ export default function Navbar({
   handleLanguageChange,
 }) {
   return (
-    <nav className="navbar  navbar-expand-md">
+    <nav className="navbar  navbar-expand-md ">
       <div className="container">
         <span className="navbar-brand d-flex align-items-center justify-content-center">
           <img

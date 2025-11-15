@@ -4,7 +4,12 @@ import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import LoadingBar from "react-top-loading-bar";
 function App() {
+  const [progress, setProgess] = useState(0);
+  const setProgessBar = (val) => {
+    setProgess(val);
+  };
   const [pageNo, setPageNo] = useState(1);
   const [country, setCountry] = useState("us");
   const [category, setCategory] = useState("general");
@@ -21,20 +26,23 @@ function App() {
     async function load() {
       try {
         const res = await axios.get(NEWS_URL);
-        console.log(res.data);
+        setProgessBar(30);
         if (pageNo === 1) {
           setArticles(res.data.articles);
+          setProgessBar(100);
         } else {
           setArticles((prev) => [...prev, ...res.data.articles]);
+          setProgessBar(100);
         }
         setTotalResults(res.data.totalResults);
         if (res.data.articles.length === 0) {
+          setProgessBar(100);
           setHasMore(false);
         } else {
           setHasMore(true);
         }
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
       }
     }
     load();
@@ -60,12 +68,19 @@ function App() {
     setHasMore(true);
   };
   const loadMore = () => {
-    // just bump pageNo; useEffect will fetch and append
     setPageNo((prev) => prev + 1);
   };
+
   //------------------------------------
   return (
     <div className="main">
+      <LoadingBar
+        color="red"
+        progress={progress}
+        onLoaderFinished={() => setProgessBar(100)}
+        waitingTime={5000}
+        height={3}
+      ></LoadingBar>
       <Navbar
         category={category}
         country={country}
@@ -81,19 +96,28 @@ function App() {
         </h2>
       </div>
 
-      <Hero
-        NEWS_API={NEWS_API}
-        category={category}
-        country={country}
-        language={language}
-        pageNo={pageNo}
-        setPageNo={setPageNo}
-        totalResults={totalResults}
-        articles={articles}
-        setArticles={setArticles}
-        loadMore={loadMore}
-        hasMore={hasMore}
-      />
+      {articles.length === 0 ? (
+        <div className="error-msg">
+          <img
+            src="https://i0.wp.com/learn.onemonth.com/wp-content/uploads/2017/08/1-10.png?fit=845%2C503&ssl=1"
+            alt=""
+          />
+        </div>
+      ) : (
+        <Hero
+          NEWS_API={NEWS_API}
+          category={category}
+          country={country}
+          language={language}
+          pageNo={pageNo}
+          setPageNo={setPageNo}
+          totalResults={totalResults}
+          articles={articles}
+          setArticles={setArticles}
+          loadMore={loadMore}
+          hasMore={hasMore}
+        />
+      )}
 
       <Footer />
     </div>
