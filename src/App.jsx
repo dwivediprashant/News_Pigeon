@@ -5,6 +5,9 @@ import Footer from "./Components/Footer/Footer";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import LoadingBar from "react-top-loading-bar";
+import { Route, Routes } from "react-router-dom";
+import Feature from "./Pages/Feature";
+import About from "./Pages/About";
 function App() {
   const [progress, setProgess] = useState(0);
   const setProgessBar = (val) => {
@@ -89,35 +92,46 @@ function App() {
         handleCountryChange={handleCountryChange}
         handleLanguageChange={handleLanguageChange}
       />
-      <div className="title-pagination ">
-        <h2 className="m-3 text-primary">
-          News Pigeon - Top headlines from{" "}
-          <span className="text-danger">{category}</span> category
-        </h2>
-      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <div className="title-pagination">
+                <h2 className="m-3 text-primary">
+                  News Pigeon - Top headlines from{" "}
+                  <span className="text-danger">{category}</span> category
+                </h2>
+              </div>
 
-      {articles.length === 0 ? (
-        <div className="error-msg">
-          <img
-            src="https://i0.wp.com/learn.onemonth.com/wp-content/uploads/2017/08/1-10.png?fit=845%2C503&ssl=1"
-            alt=""
-          />
-        </div>
-      ) : (
-        <Hero
-          NEWS_API={NEWS_API}
-          category={category}
-          country={country}
-          language={language}
-          pageNo={pageNo}
-          setPageNo={setPageNo}
-          totalResults={totalResults}
-          articles={articles}
-          setArticles={setArticles}
-          loadMore={loadMore}
-          hasMore={hasMore}
+              {articles.length === 0 ? (
+                <div className="error-msg">
+                  <img
+                    src="https://i0.wp.com/learn.onemonth.com/wp-content/uploads/2017/08/1-10.png?fit=845%2C503&ssl=1"
+                    alt=""
+                  />
+                </div>
+              ) : (
+                <Hero
+                  NEWS_API={NEWS_API}
+                  category={category}
+                  country={country}
+                  language={language}
+                  pageNo={pageNo}
+                  setPageNo={setPageNo}
+                  totalResults={totalResults}
+                  articles={articles}
+                  setArticles={setArticles}
+                  loadMore={loadMore}
+                  hasMore={hasMore}
+                />
+              )}
+            </>
+          }
         />
-      )}
+        <Route exact path="/features" element={<Feature />} />
+        <Route exact path="/about" element={<About />} />
+      </Routes>
 
       <Footer />
     </div>

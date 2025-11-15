@@ -9,14 +9,16 @@ export default function DropdownTab({
   handleLanguageChange,
 }) {
   return (
-    <div className="dropdownTab">
+    <div className="dropdownTab ">
       {/* //country dropdown */}
+      <span className="me-1">Country</span>
       <Dropdown
         title={`${country}`}
         options={["us", "in"]}
         func={handleCountryChange}
       />
       {/* //category dropdown */}
+      <span className="me-1">Category</span>
       <Dropdown
         title={`${category}`}
         options={[
@@ -31,6 +33,7 @@ export default function DropdownTab({
         func={handleCategoryChange}
       />
       {/* //languuage dropdown */}
+      <span className="me-1">Language</span>
       <Dropdown
         title={`${language}`}
         options={["ar", "de", "en", "es", "fr"]}

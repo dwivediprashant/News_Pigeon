@@ -6,8 +6,8 @@
 .navbar {
   background-color: #0d0d0d;
   color: #fff;
-  position: sticky !important;
-  top: 0px;
+  height: max-content;
+  padding: 0;
 }
 .fa-bars {
   color: white;
@@ -15,4 +15,21 @@
 .nav-link {
   color: #fff;
   margin: 0 2px 0 2px;
+}
+.fa-github {
+  font-size: 1.25rem;
+}
+.nav-options li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-options li a {
+  text-decoration: none;
+  color: white;
+  letter-spacing: 2px;
+}
+.active {
+  text-decoration: underline;
+  color: blue;
 }

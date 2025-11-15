@@ -1,6 +1,7 @@
 .dropdownTab {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-grow: initial;
+  justify-content: center;
   align-items: center;
+  max-width: fit-content;
 }
