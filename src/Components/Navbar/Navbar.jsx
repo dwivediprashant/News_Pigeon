@@ -4,13 +4,13 @@ export default function Navbar({
   category,
   country,
   language,
-  setCountry,
-  setCategory,
-  setLanguage,
+  handleCategoryChange,
+  handleCountryChange,
+  handleLanguageChange,
 }) {
   return (
     <nav className="navbar  navbar-expand-md">
-      <div className="container-fluid">
+      <div className="container">
         <span className="navbar-brand d-flex align-items-center justify-content-center">
           <img
             src="../../../logo.svg"
@@ -24,9 +24,9 @@ export default function Navbar({
             category={category}
             country={country}
             language={language}
-            setCategory={setCategory}
-            setCountry={setCountry}
-            setLanguage={setLanguage}
+            handleCategoryChange={handleCategoryChange}
+            handleCountryChange={handleCountryChange}
+            handleLanguageChange={handleLanguageChange}
           />
           <button
             className="navbar-toggler mx-2"

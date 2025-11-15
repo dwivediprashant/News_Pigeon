@@ -4,14 +4,18 @@ export default function DropdownTab({
   category,
   country,
   language,
-  setCategory,
-  setCountry,
-  setLanguage,
+  handleCategoryChange,
+  handleCountryChange,
+  handleLanguageChange,
 }) {
   return (
     <div className="dropdownTab">
       {/* //country dropdown */}
-      <Dropdown title={`${country}`} options={["us", "in"]} func={setCountry} />
+      <Dropdown
+        title={`${country}`}
+        options={["us", "in"]}
+        func={handleCountryChange}
+      />
       {/* //category dropdown */}
       <Dropdown
         title={`${category}`}
@@ -24,13 +28,13 @@ export default function DropdownTab({
           "sports",
           "technology",
         ]}
-        func={setCategory}
+        func={handleCategoryChange}
       />
       {/* //languuage dropdown */}
       <Dropdown
         title={`${language}`}
         options={["ar", "de", "en", "es", "fr"]}
-        func={setLanguage}
+        func={handleLanguageChange}
       />
     </div>
   );

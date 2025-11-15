@@ -2,13 +2,24 @@
   width: 18rem;
   margin: 1rem;
 }
+.card-body-below {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
 .newscard {
   display: flex;
   justify-content: start;
-  flex-wrap: wrap;
   min-height: 100vh;
   min-width: 100vw;
 }
 .badge {
   z-index: 2;
+}
+.infinite-scroll {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  min-width: 50vw;
 }
