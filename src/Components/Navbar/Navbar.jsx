@@ -84,9 +84,13 @@ export default function Navbar({
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link
+                  className="nav-link"
+                  to="https://github.com/dwivediprashant/News_Pigeon"
+                  target="_blank"
+                >
                   <i className="fa-brands fa-github"></i>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
